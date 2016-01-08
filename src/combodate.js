@@ -19,7 +19,13 @@
 * Project page: http://github.com/vitalets/combodate
 * Copyright (c) 2012 Vitaliy Potapov. Released under MIT License.
 **/
-(function ($) {
+(function (factory) {
+  if (typeof module === "object" && typeof module.exports === "object") {
+    factory(require("jquery"), require("moment"), window, document);
+  } else {
+    factory(jQuery, moment, window, document);
+  }
+}(function($, moment, window, document, undefined) {
 
     var Combodate = function (element, options) {
         this.$element = $(element);
@@ -521,4 +527,4 @@
         smartDays: false // whether days in combo depend on selected month: 31, 30, 28
     };
 
-}(window.jQuery));
+}));
